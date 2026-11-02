@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DSH Water · 算法预览</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; background: #101211; }
+  body { font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #e9e3d6; }
+  #stage { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 18px; }
+  canvas { display: block; width: min(100%, 1280px); height: auto; background: #101211;
+           box-shadow: 0 18px 60px rgba(0,0,0,.55); image-rendering: auto; }
+  #hud { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%);
+         display: flex; gap: 14px; align-items: center; padding: 10px 12px;
+         background: rgba(12,14,13,.72); border: 1px solid rgba(235,228,211,.18);
+         border-radius: 999px; backdrop-filter: blur(8px); font-size: 13px; }
+  #hud .note { color: #b9b3a5; max-width: 470px; line-height: 1.35; padding: 0 6px; }
+  button { appearance: none; border: 1px solid rgba(235,228,211,.28); background: transparent;
+           color: #e9e3d6; border-radius: 999px; padding: 7px 16px; font: inherit; cursor: pointer; }
+  button[aria-pressed="true"] { background: #d9cbb0; color: #161814; border-color: #d9cbb0; }
+  .capture #hud { display: none; }
+  .capture #stage { padding: 0; min-height: 0; }
+  .capture canvas { box-shadow: none; width: 1280px; }
+  @media (max-width: 780px) { #hud { flex-wrap: wrap; justify-content: center; border-radius: 18px; } }
+</style>
+</head>
+<body>
+<div id="stage">
+  <canvas id="gl" width="1280" height="673"></canvas>
+</div>
+<div id="hud">
+  <div class="note">WebGL2 算法预览（非 Unity 截图）。与 Cg shader 使用同一套波浪、平面反射、菲涅尔、太阳高光和雾公式。</div>
+  <button id="before" type="button" aria-pressed="false">未应用 Shader</button>
+  <button id="after" type="button" aria-pressed="true">应用 Shader</button>
+</div>
+<script src="preview.js"></script>
+</body>
+</html>
