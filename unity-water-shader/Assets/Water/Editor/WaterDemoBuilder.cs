@@ -192,7 +192,7 @@ namespace DSH.Water.EditorTools
                 else
                 {
                     skyAsset.CopyPropertiesFromMaterial(sky);
-                    Object.DestroyImmediate(sky);
+                    UnityEngine.Object.DestroyImmediate(sky);
                     sky = skyAsset;
                     EditorUtility.SetDirty(sky);
                 }
@@ -394,7 +394,7 @@ namespace DSH.Water.EditorTools
 
             Collider collider = box.GetComponent<Collider>();
             if (collider != null)
-                Object.DestroyImmediate(collider);
+                UnityEngine.Object.DestroyImmediate(collider);
 
             MeshRenderer renderer = box.GetComponent<MeshRenderer>();
             renderer.sharedMaterial = material;

@@ -269,15 +269,15 @@ namespace DSH.Water
             }
         }
 
-        private static void DestroyImmediateSafe(Object target)
+        private static void DestroyImmediateSafe(UnityEngine.Object target)
         {
             if (target == null)
                 return;
 
             if (Application.isPlaying)
-                Object.Destroy(target);
+                UnityEngine.Object.Destroy(target);
             else
-                Object.DestroyImmediate(target);
+                UnityEngine.Object.DestroyImmediate(target);
         }
 
         private static void CalculateReflectionMatrix(
