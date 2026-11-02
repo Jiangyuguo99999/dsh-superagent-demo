@@ -1,4 +1,4 @@
-// DSH Water — Cg water surface for Unity's Built-in Render Pipeline.
+// DSH Water - Cg water surface for Unity's Built-in Render Pipeline.
 //
 // The look target is a calm, slightly murky urban canal under a bright, hazy
 // overcast sky: strong grazing-angle planar reflections with long wind streaks,
@@ -181,7 +181,7 @@ Shader "DSH/Water"
                 float2 streakUV = float2(
                     dot(p, wind) * 0.10,
                     dot(p, perp) * 1.10 * _WaveScale);
-                const float e = 0.16;
+                float e = 0.16;
                 float n0 = Fbm(streakUV + float2(t * 0.030, t * 0.008));
                 float nx = Fbm(streakUV + float2(e, 0.0) + float2(t * 0.030, t * 0.008));
                 float nz = Fbm(streakUV + float2(0.0, e) + float2(t * 0.030, t * 0.008));
@@ -216,7 +216,7 @@ Shader "DSH/Water"
                 float2 fineUV = float2(
                     dot(p, wind) * 3.0,
                     dot(p, perp) * 8.0) * _WaveScale;
-                const float e = 0.035;
+                float e = 0.035;
                 float n0 = ValueNoise(fineUV + t * 0.60) * 0.035 +
                            ValueNoise(fineUV * 2.1 - t * 0.90 + 11.3) * 0.012;
                 float nx = ValueNoise(fineUV + float2(e, 0.0) + t * 0.60) * 0.035 +
